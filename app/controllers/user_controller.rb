@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+include SignupHelper
 
 	def index
 		@user = User.new
@@ -14,7 +15,7 @@ class UserController < ApplicationController
 			session[:current_user] = @user.id
 			redirect_to user_path(@user.id)
 		else
-			flash[:error] = "Invalid Username"
+			flash[:error] = determine_signup_error(user_params)
 			render 'index'
 		end
 	end
