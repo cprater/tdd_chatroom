@@ -1,4 +1,4 @@
-== Chatroom
+== Chatroom [![Build Status](https://travis-ci.org/cprater/tdd_chatroom.svg?branch=travis)](https://travis-ci.org/cprater/tdd_chatroom)
 
 A chatroom built on Rails with a TDD design.
 Something I'm working on personally for practice and fun!
