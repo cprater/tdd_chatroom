@@ -33,7 +33,6 @@ group :doc do
 end
 
 group :development, :test do 
-	gem 'bcrypt-ruby', '~> 3.1.2'
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'pry'
@@ -41,6 +40,9 @@ group :development, :test do
 end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
+
+# That coveralls son
+gem 'coveralls', require: false
 
 # Use unicorn as the app server
 # gem 'unicorn'
