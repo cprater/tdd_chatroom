@@ -1,4 +1,7 @@
-== Chatroom {<img src="https://travis-ci.org/cprater/tdd_chatroom.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/cprater/tdd_chatroom]
+== Chatroom {<img src="https://travis-ci.org/cprater/tdd_chatroom.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/cprater/tdd_chatroom] 
+{<img src="https://coveralls.io/repos/cprater/tdd_chatroom/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/cprater/tdd_chatroom]
+
+
 
 A chatroom built on Rails with a TDD design.
 Something I'm working on personally for practice and fun!
