@@ -1,5 +1,8 @@
 == Chatroom {<img src="https://travis-ci.org/cprater/tdd_chatroom.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/cprater/tdd_chatroom] 
-{<img src="https://coveralls.io/repos/cprater/tdd_chatroom/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/cprater/tdd_chatroom]
+
+{<img src="https://coveralls.io/repos/cprater/tdd_chatroom/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/cprater/tdd_chatroom?branch=master]
+
+
 
 
 
