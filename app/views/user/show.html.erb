@@ -1,1 +1,7 @@
 <h1>Welcome <%=@user.username%></h1>
+
+
+<%= form_for "chatroom", url: room_index_path, html: {id: "new_room"} do |f|%>
+	<%= f.text_field "name" %>
+	<%= f.submit "Create Chatroom"%>
+<% end %>
