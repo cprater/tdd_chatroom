@@ -31,5 +31,26 @@ describe RoomController do
 		end
 	end
 
-	
+	context 'when displaying a chatroom' do 
+		before(:each) do 
+			@room = Room.create(name: 'roomie', created_by: 1)
+		end
+
+		it 'should display roomname' do 
+			visit room_path(1)
+			expect(page).to have_content 'roomie'
+		end
+
+		it 'should display creators name' do 
+			visit room_path(1)
+			expect(page).to have_content 'test'
+		end
+
+		# it 'should display members' do 
+		# 	user = User.create(username: 'billy', password: '123', password_confirmation: '123')
+		# 	@room.join(user)
+		# 	visit room_path(1)
+		# 	expect(page).to have_content 'billy'
+		# end
+	end
 end

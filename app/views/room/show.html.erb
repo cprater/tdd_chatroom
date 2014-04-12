@@ -1,1 +1,10 @@
-<h1><%=@room.name%></h1>
+<h1><%=@room.name%> created by: <%=@room.username %></h1>
+
+<h4>Whose chatting?</h4>
+<ul class="members">
+	<% if @room.members %>
+		<% @room.members.each do |member| %>
+			<li><%= member %></li>
+		<% end %>
+	<% end %>
+</ul>
