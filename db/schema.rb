@@ -13,9 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20140411195247) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "rooms", force: true do |t|
     t.string   "name"
     t.integer  "created_by"
+    t.text     "members"
+    t.text     "messages"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,6 +3,8 @@ class CreateRooms < ActiveRecord::Migration
     create_table :rooms do |t|
     	t.string :name
     	t.integer :created_by, source: "User", default: nil
+    	t.text :members
+    	t.text :messages
 
       t.timestamps
     end

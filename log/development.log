@@ -6702,3 +6702,1505 @@ Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-12 15:08:31 -050
   [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "created_by", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 12 Apr 2014 20:22:28 UTC +00:00], ["created_by", 2], ["name", "yeppers"], ["updated_at", Sat, 12 Apr 2014 20:22:28 UTC +00:00]]
   [1m[35m (1.3ms)[0m  commit transaction
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/room/3" for 127.0.0.1 at 2014-04-13 14:21:41 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.4ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "3"]]
+Completed 404 Not Found in 6ms
+
+ActiveRecord::RecordNotFound (Couldn't find Room with id=3):
+  app/controllers/room_controller.rb:10:in `show'
+
+
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-13 14:21:47 -0500
+Processing by UserController#index as HTML
+  Rendered user/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 15ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:21:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:47 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:47 -0500
+
+
+Started POST "/user" for 127.0.0.1 at 2014-04-13 14:21:50 -0500
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "user"=>{"username"=>"me", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'me' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", Sun, 13 Apr 2014 19:21:50 UTC +00:00], ["password_digest", "$2a$10$wBx4SagiliFAevwWL33J5.eOAjViY86jqtr0Q6rr3e4u5jrYuMoPG"], ["updated_at", Sun, 13 Apr 2014 19:21:50 UTC +00:00], ["username", "me"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/user/3
+Completed 302 Found in 75ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/user/3" for 127.0.0.1 at 2014-04-13 14:21:50 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:21:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:50 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:50 -0500
+
+
+Started POST "/room" for 127.0.0.1 at 2014-04-13 14:21:54 -0500
+Processing by RoomController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "chatroom"=>{"name"=>"chloe"}, "commit"=>"Create Chatroom"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.1ms)[0m  SELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'chloe' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rooms" ("created_at", "created_by", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 13 Apr 2014 19:21:54 UTC +00:00], ["created_by", 3], ["name", "chloe"], ["updated_at", Sun, 13 Apr 2014 19:21:54 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/room/5
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:21:54 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:21:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:54 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:54 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:54 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:21:54 -0500
+  [1m[36mRoom Load (1.0ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:22:36 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:22:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:36 -0500
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:22:41 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:22:41 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:41 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:41 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:41 -0500
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:22:42 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:22:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:22:42 -0500
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:23:36 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.6ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:23:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:36 -0500
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:23:36 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:23:37 -0500
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."id" DESC LIMIT 1[0m
+  [1m[35mRoom Load (0.3ms)[0m  SELECT "rooms".* FROM "rooms" ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'chloe' AND "rooms"."id" != 5) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:24:29 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:24:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:29 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:29 -0500
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:30 -0500
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.2ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'chloe' AND "rooms"."id" != 5) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 14:24:35 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered room/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 14:24:35 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:35 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:35 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:35 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 14:24:35 -0500
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."id" DESC LIMIT 1[0m
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140411195247')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140407201101')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mRoom Load (0.9ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.2ms)[0m  SELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mRoom Load (0.8ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "rooms" ("created_at", "created_by", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 13 Apr 2014 19:37:16 UTC +00:00], ["created_by", 1], ["name", "test"], ["updated_at", Sun, 13 Apr 2014 19:37:16 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[36mRoom Load (0.9ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  DELETE FROM "rooms" WHERE "rooms"."id" = ?  [["id", 1]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mRoom Load (0.8ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "members" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140411195247')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140407201101')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.1ms)[0m  SELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "rooms" ("created_at", "members", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 13 Apr 2014 19:41:23 UTC +00:00], ["members", nil], ["name", "test"], ["updated_at", Sun, 13 Apr 2014 19:41:23 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mRoom Load (1.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.2ms)[0m  SELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "rooms" ("created_at", "members", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 13 Apr 2014 19:43:02 UTC +00:00], ["members", "--- []\n"], ["name", "test"], ["updated_at", Sun, 13 Apr 2014 19:43:02 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "members" text DEFAULT '--- []
+', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140411195247')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140407201101')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mRoom Load (0.9ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'test' LIMIT 1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "rooms" ("created_at", "members", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 13 Apr 2014 20:05:48 UTC +00:00], ["members", "--- []\n"], ["name", "test"], ["updated_at", Sun, 13 Apr 2014 20:05:48 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'me' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 13 Apr 2014 20:06:29 UTC +00:00], ["password_digest", "$2a$10$6aBkjtIMGJ3C6wJ1M4zUcuU50jezPiBr0EZeCcIfL56GYmiMX5ikm"], ["updated_at", Sun, 13 Apr 2014 20:06:29 UTC +00:00], ["username", "me"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+
+
+Started GET "/room/5" for 127.0.0.1 at 2014-04-13 15:06:46 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "5"]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Room with id=5):
+  app/controllers/room_controller.rb:10:in `show'
+
+
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-13 15:06:49 -0500
+Processing by UserController#index as HTML
+  Rendered user/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 13ms (Views: 7.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:06:49 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:49 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:49 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:49 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:49 -0500
+
+
+Started POST "/user" for 127.0.0.1 at 2014-04-13 15:06:54 -0500
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "user"=>{"username"=>"yo", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'yo' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 13 Apr 2014 20:06:54 UTC +00:00], ["password_digest", "$2a$10$vHzQcgUY4h2H/mVamOR9Iuq1KMyduwARxoFDHrJciset6L5RS2N/q"], ["updated_at", Sun, 13 Apr 2014 20:06:54 UTC +00:00], ["username", "yo"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/user/2
+Completed 302 Found in 75ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/user/2" for 127.0.0.1 at 2014-04-13 15:06:54 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:06:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:54 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:54 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:54 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:54 -0500
+
+
+Started POST "/room" for 127.0.0.1 at 2014-04-13 15:06:58 -0500
+Processing by RoomController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "chatroom"=>{"name"=>"roomie"}, "commit"=>"Create Chatroom"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'roomie' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("created_at", "created_by", "members", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 13 Apr 2014 20:06:58 UTC +00:00], ["created_by", 2], ["members", "--- []\n"], ["name", "roomie"], ["updated_at", Sun, 13 Apr 2014 20:06:58 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/room/2
+Completed 302 Found in 8ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:06:58 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:06:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:58 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:58 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:06:58 -0500
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:30 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:07:31 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:31 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:07:31 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:31 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:07:53 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:07:53 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:07:53 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:08:21 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:08:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:08:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:08:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:08:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:08:21 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:09:33 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (55863.2ms)
+Completed 200 OK in 55868ms (Views: 55866.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:10:28 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:28 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:28 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:28 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:28 -0500
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'roomie' AND "rooms"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (27.1ms)[0m  UPDATE "rooms" SET "updated_at" = ?, "members" = ? WHERE "rooms"."id" = 2  [["updated_at", Sun, 13 Apr 2014 20:10:35 UTC +00:00], ["members", "---\n- yo\n- me\n"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:10:44 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (10445.2ms)
+Completed 200 OK in 10449ms (Views: 10447.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:10:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:54 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:54 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:54 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:10:54 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:18:04 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 22ms (Views: 12.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:18:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:18:04 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:18:04 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:18:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:18:04 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:19:17 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:19:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:19:17 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:19:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:19:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:19:17 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:20:06 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:20:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:06 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:20:22 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:20:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:22 -0500
+
+
+Started GET "/user/2" for 127.0.0.1 at 2014-04-13 15:20:35 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:20:35 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:35 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:35 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:35 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:35 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-13 15:20:36 -0500
+Processing by UserController#index as HTML
+  Rendered user/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:20:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:36 -0500
+
+
+Started GET "/user/2" for 127.0.0.1 at 2014-04-13 15:20:37 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered user/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:37 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:20:37 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:37 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:20:38 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:20:38 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:38 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:38 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:38 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:20:38 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:21:48 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:21:48 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:21:48 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:21:48 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:21:48 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:21:48 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:26:42 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:26:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:26:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:26:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:26:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:26:42 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:28:07 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:28:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:28:07 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:28:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:28:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:28:07 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:32:58 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:32:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:32:58 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:32:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:32:58 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:32:58 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:33:51 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:33:51 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:33:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:33:51 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:33:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:33:51 -0500
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:48:15 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (9.5ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `stringify_keys' for "/add_message":String):
+    16: </div>
+    17: 
+    18: <%= text_area :sending, :message, cols: 25, rows: 4, autofocus: :true %>
+    19: <%= button_tag "Send", add_message_path %>
+  app/views/room/show.html.erb:19:in `_app_views_room_show_html_erb___4239825242732959619_2181408340'
+
+
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.2ms)
+
+
+Started GET "/room/2" for 127.0.0.1 at 2014-04-13 15:49:45 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `stringify_keys' for "/add_message":String):
+    16: </div>
+    17: 
+    18: <%= text_area :sending, :message, cols: 25, rows: 4, autofocus: :true %>
+    19: <%= button_tag "Send", add_message_path %>
+  app/views/room/show.html.erb:19:in `_app_views_room_show_html_erb___4239825242732959619_2181408340'
+
+
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/user/2" for 127.0.0.1 at 2014-04-13 15:49:47 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered user/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:47 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:49:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:47 -0500
+
+
+Started GET "/user/2" for 127.0.0.1 at 2014-04-13 15:49:50 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 15:49:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:50 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 15:49:50 -0500
+
+
+Started POST "/room" for 127.0.0.1 at 2014-04-13 15:49:53 -0500
+Processing by RoomController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "chatroom"=>{"name"=>"boobs"}, "commit"=>"Create Chatroom"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRoom Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'boobs' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rooms" ("created_at", "created_by", "members", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 13 Apr 2014 20:49:53 UTC +00:00], ["created_by", 2], ["members", "--- []\n"], ["name", "boobs"], ["updated_at", Sun, 13 Apr 2014 20:49:53 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/room/3
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/room/3" for 127.0.0.1 at 2014-04-13 15:49:53 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `stringify_keys' for "/add_message":String):
+    16: </div>
+    17: 
+    18: <%= text_area :sending, :message, cols: 25, rows: 4, autofocus: :true %>
+    19: <%= button_tag "Send", add_message_path %>
+  app/views/room/show.html.erb:19:in `_app_views_room_show_html_erb___4239825242732959619_2181408340'
+
+
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/room/3" for 127.0.0.1 at 2014-04-13 16:18:05 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:18:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:18:05 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:18:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:18:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:18:05 -0500
+
+
+Started GET "/room/3" for 127.0.0.1 at 2014-04-13 16:18:10 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `stringify_keys' for "Send":String):
+    16: </div>
+    17: 
+    18: <%= text_area :sending, :message, cols: 25, rows: 4, autofocus: :true %>
+    19: <%= button_tag add_message_path, "Send" %>
+  app/views/room/show.html.erb:19:in `_app_views_room_show_html_erb___4239825242732959619_2175172080'
+
+
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/room/3" for 127.0.0.1 at 2014-04-13 16:23:01 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered room/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:23:01 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:23:01 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:23:01 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:23:01 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:23:01 -0500
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "members" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140411195247')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140407201101')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "members" text, "messages" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140411195247')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140407201101')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/room/3" for 127.0.0.1 at 2014-04-13 16:53:39 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "3"]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Room with id=3):
+  app/controllers/room_controller.rb:10:in `show'
+
+
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/christoph/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-13 16:53:41 -0500
+Processing by UserController#index as HTML
+  Rendered user/index.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 45ms (Views: 39.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:53:41 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:41 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:41 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:41 -0500
+
+
+Started POST "/user" for 127.0.0.1 at 2014-04-13 16:53:45 -0500
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "user"=>{"username"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'test' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", Sun, 13 Apr 2014 21:53:46 UTC +00:00], ["password_digest", "$2a$10$j/OY8bxK.sSv0P5i7yjqw.dr7GcckjAVPR7ivPVQo4c/TTXiD6DbS"], ["updated_at", Sun, 13 Apr 2014 21:53:46 UTC +00:00], ["username", "test"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/user/1
+Completed 302 Found in 76ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/user/1" for 127.0.0.1 at 2014-04-13 16:53:46 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:53:46 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:46 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:46 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:46 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:46 -0500
+
+
+Started POST "/room" for 127.0.0.1 at 2014-04-13 16:53:48 -0500
+Processing by RoomController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "chatroom"=>{"name"=>"boobs"}, "commit"=>"Create Chatroom"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.1ms)[0m  SELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = 'boobs' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rooms" ("created_at", "created_by", "members", "messages", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 13 Apr 2014 21:53:48 UTC +00:00], ["created_by", 1], ["members", "--- []\n"], ["messages", "--- {}\n"], ["name", "boobs"], ["updated_at", Sun, 13 Apr 2014 21:53:48 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/room/1
+Completed 302 Found in 11ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-13 16:53:48 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered room/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:53:48 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:48 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:48 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:48 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:48 -0500
+
+
+Started POST "/add_message" for 127.0.0.1 at 2014-04-13 16:53:52 -0500
+Processing by RoomController#add_message as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "sending"=>{"message"=>"yoyoyo\r\n", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.1ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'boobs' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "rooms" SET "updated_at" = ?, "members" = ?, "messages" = ? WHERE "rooms"."id" = 1[0m  [["updated_at", Sun, 13 Apr 2014 21:53:52 UTC +00:00], ["members", "--- []\n"], ["messages", "---\n:username: \"yoyoyo\\r\\n\"\n"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/room/1
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-13 16:53:52 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered room/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:53:52 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:52 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:52 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:52 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:53:52 -0500
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-13 16:54:06 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered room/show.html.erb within layouts/application (47.7ms)
+Completed 200 OK in 59ms (Views: 50.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:54:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:06 -0500
+
+
+Started POST "/add_message" for 127.0.0.1 at 2014-04-13 16:54:11 -0500
+Processing by RoomController#add_message as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IK8n5En7IDjelWMAYZsyeuXniPKp+o7wABGB2u1KEIo=", "sending"=>{"message"=>"blahblah\r\n", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.1ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'boobs' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "rooms" SET "updated_at" = ?, "members" = ?, "messages" = ? WHERE "rooms"."id" = 1[0m  [["updated_at", Sun, 13 Apr 2014 21:54:11 UTC +00:00], ["members", "--- []\n"], ["messages", "---\n:username: \"yoyoyo\\r\\n\"\ntest: \"blahblah\\r\\n\"\n"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/room/1
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-13 16:54:11 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered room/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:54:11 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:11 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:11 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:11 -0500
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-13 16:54:58 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mRoom Exists (0.1ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'boobs' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "rooms" SET "updated_at" = ?, "members" = ?, "messages" = ? WHERE "rooms"."id" = 1[0m  [["updated_at", Sun, 13 Apr 2014 21:54:58 UTC +00:00], ["members", "---\n- test\n"], ["messages", "---\n:username: \"yoyoyo\\r\\n\"\ntest: \"blahblah\\r\\n\"\n"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered room/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 4.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-13 16:54:58 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:58 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-13 16:54:58 -0500
+  [1m[36m (0.1ms)[0m  [1mDROP DATABASE IF EXISTS "chatroom_development"[0m
+  [1m[35m (0.1ms)[0m  DROP DATABASE IF EXISTS "chatroom_test"
+  [1m[36m (333.1ms)[0m  [1mCREATE DATABASE "chatroom_development" ENCODING = 'utf8'[0m
+  [1m[35m (236.5ms)[0m  CREATE DATABASE "chatroom_test" ENCODING = 'utf8'
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "rooms" ("id" serial primary key, "name" character varying(255), "created_by" integer, "members" text, "messages" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140411195247')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140407201101')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

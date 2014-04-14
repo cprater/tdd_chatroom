@@ -46,11 +46,41 @@ describe RoomController do
 			expect(page).to have_content 'test'
 		end
 
-		# it 'should display members' do 
-		# 	user = User.create(username: 'billy', password: '123', password_confirmation: '123')
-		# 	@room.join(user)
-		# 	visit room_path(1)
-		# 	expect(page).to have_content 'billy'
-		# end
+		it 'should display members' do 
+			user = User.create(username: 'billy', password: '123', password_confirmation: '123')
+			@room.join(user)
+			visit room_path(1)
+			expect(page).to have_content 'billy'
+		end
+
+		it 'should display chat messages' do 
+			visit room_path(1)
+			expect(page).to have_selector('.messages')
+		end
+
+		it 'should display a text field' do 
+			visit room_path(1)
+			expect(page).to have_field ('sending_message')
+		end
+
+		it 'should have a send message button' do 
+			visit room_path(1)
+			expect(page).to have_button ('Send')
+		end
+	end
+
+	context 'chatting' do 
+		before(:each) do 
+			@room = Room.create(name: 'roomie', created_by: 1)
+		end
+
+		it 'should send messages to the screen' do 
+			visit room_path(1)
+			
+				fill_in 'sending_message', :with => 'This be a message'
+				click_button 'Send'
+				expect(page).to have_content 'This be a message'
+			
+		end
 	end
 end
