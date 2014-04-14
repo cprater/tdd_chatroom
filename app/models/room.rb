@@ -1,20 +1,21 @@
 class Room < ActiveRecord::Base
-	attr_reader :members
+	serialize :members, Array
+	serialize :messages, Hash
 	validates :name, presence: :true, uniqueness: :true
 	belongs_to :user, foreign_key: "created_by"
-	after_create :create_members
 	
 
 	def join(user)
-		@members << user.username
+		self.members << user.username
+		self.save
 	end
 
 	def leave(user)
-		@members.delete(user.username)
+		self.members.delete(user.username)
+		self.save
 	end
 
-private
-	def create_members
-		@members = []
+	def username
+		User.find(self.created_by).username
 	end
 end

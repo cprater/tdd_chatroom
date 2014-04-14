@@ -1,3 +1,7 @@
+textarea {
+	resize: none;
+}
+
 .wrapper {
 	width: 80%;
 	border: 1px dotted grey;

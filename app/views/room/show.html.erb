@@ -1,1 +1,28 @@
-<h1><%=@room.name%></h1>
+<h1><%=@room.name%> created by: <%=@room.username %></h1>
+
+<h4>Whose chatting?</h4>
+<ul class="members">
+	<% if @room.members %>
+		<% @room.members.each do |member| %>
+			<li><%= member %></li>
+		<% end %>
+	<% end %>
+</ul>
+
+<div class="chat_messages">
+	<ul class="messages">
+			<% if @room.messages %>
+				<% @room.messages.each do |name, message| %>
+					<li class="message"><%= name %>: <%=message%></li>
+				<% end %>						
+			<% end %>
+			  
+		<li class="chat_message"></li>
+	</ul>
+</div>
+
+<%= form_for 'sending', url: add_message_path do |f| %>
+	<%= f.text_area :message, cols: 25, rows: 4, autofocus: :true %>
+	<%= f.hidden_field :room_id, value: "#{@room.id}" %>
+	<%= f.submit "Send" %>
+<% end %>
