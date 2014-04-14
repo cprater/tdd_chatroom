@@ -88,7 +88,7 @@ describe RoomController do
 			fill_in 'sending_message', :with => 'Scrilla'
 			click_button 'Send'
 
-			expect(page).to have_content 'Yo Zilla Scrilla'
+			expect(page).to have_content 'test: Yo Zilla' && 'test: Scrilla'
 		end
 	end
 end

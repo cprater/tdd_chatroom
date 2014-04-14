@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
     	t.belongs_to :room
     	t.string :username
-    	t.text :messages
+    	t.text :message
 
     	t.timestamps
     end

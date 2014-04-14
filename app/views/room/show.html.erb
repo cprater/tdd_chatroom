@@ -12,8 +12,8 @@
 <div class="chat_messages">
 	<ul class="messages">
 			<% if @room.messages %>
-				<% @room.messages.each do |name, message| %>
-					<li class="message"><%= name %>: <%=message%></li>
+				<% @room.messages.each do |message| %>
+					<li class="message"><%= message.username %>: <%=message.message%></li>
 				<% end %>						
 			<% end %>
 			  

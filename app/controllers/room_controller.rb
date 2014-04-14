@@ -14,7 +14,10 @@ class RoomController < ApplicationController
 	def add_message
 		username = User.find(session[:current_user]).username
 		@room = Room.find(params[:sending][:room_id])
-		@room.messages[username] = params[:sending][:message]
+		# binding.pry
+		message = Message.new(message: params[:sending][:message], username: username)
+
+		@room.messages << message
 		@room.save
 		redirect_to room_path(@room.id)
 	end
