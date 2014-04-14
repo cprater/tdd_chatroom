@@ -35,11 +35,11 @@
         null,
         null,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        2,
+        2,
+        2,
+        0,
+        0,
         null,
         null,
         null
@@ -57,18 +57,18 @@
         1,
         null,
         1,
+        15,
+        null,
+        null,
+        1,
+        13,
+        null,
+        null,
+        1,
         14,
-        null,
-        null,
-        1,
-        12,
-        null,
-        null,
-        1,
-        13,
-        13,
-        10,
-        10,
+        14,
+        11,
+        11,
         null,
         3,
         3,
@@ -78,12 +78,13 @@
         1,
         null,
         1,
-        16,
+        17,
         null,
         null,
         null
       ],
       "/Users/christoph/Documents/personal/chatroom/app/models/room.rb": [
+        1,
         1,
         1,
         1,
@@ -113,8 +114,13 @@
         1,
         1,
         null
+      ],
+      "/Users/christoph/Documents/personal/chatroom/app/models/message.rb": [
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1397437186
+    "timestamp": 1397457065
   }
 }

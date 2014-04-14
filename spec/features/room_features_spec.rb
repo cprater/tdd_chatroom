@@ -75,12 +75,20 @@ describe RoomController do
 		end
 
 		it 'should send messages to the screen' do 
-			visit room_path(1)
-			
+			visit room_path(1)			
 				fill_in 'sending_message', :with => 'This be a message'
 				click_button 'Send'
-				expect(page).to have_content 'This be a message'
-			
+				expect(page).to have_content 'This be a message'				
+		end
+
+		it 'should display all user\'s messages' do 
+			visit room_path(1)
+			fill_in 'sending_message', :with => 'Yo Zilla'
+			click_button 'Send'
+			fill_in 'sending_message', :with => 'Scrilla'
+			click_button 'Send'
+
+			expect(page).to have_content 'Yo Zilla Scrilla'
 		end
 	end
 end
