@@ -28,7 +28,7 @@ describe Room do
 		end
 
 		it 'should belong to a user' do			
-			expect(@chatroom.created_by).to eq 1
+			expect(@chatroom.username).to eq "test"
 		end
 
 		it 'should exsist in its creators created_rooms' do
