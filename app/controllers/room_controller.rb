@@ -1,6 +1,5 @@
 class RoomController < ApplicationController
 
-
 	def create
 		@room = Room.create(name: params[:chatroom][:name], created_by: session[:current_user])
 		@room.join(User.find(session[:current_user]))
@@ -9,6 +8,7 @@ class RoomController < ApplicationController
 
 	def show
 		@room = Room.find(params[:id])
+		@room.join(User.find(session[:current_user]))
 	end
 
 	def add_message

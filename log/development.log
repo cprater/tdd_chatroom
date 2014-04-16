@@ -8513,3 +8513,52 @@ Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.7ms)
 
 
 Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-14 17:03:56 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-16 13:49:24 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (27.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UserController#index as HTML
+  Rendered user/index.html.erb within layouts/application (47.8ms)
+Completed 200 OK in 124ms (Views: 84.3ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-16 13:49:25 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-16 13:49:25 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-16 13:49:25 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-16 13:49:25 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-16 13:49:25 -0500
+  [1m[36m (5042.8ms)[0m  [1mDROP DATABASE IF EXISTS "chatroom_development"[0m
+PG::ObjectInUse: ERROR:  database "chatroom_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "chatroom_development"
+  [1m[35m (0.3ms)[0m  CREATE DATABASE "chatroom_development" ENCODING = 'utf8'
+PG::DuplicateDatabase: ERROR:  database "chatroom_development" already exists
+: CREATE DATABASE "chatroom_development" ENCODING = 'utf8'
+  [1m[36m (20.7ms)[0m  [1mDROP TABLE "messages"[0m
+  [1m[35m (11.9ms)[0m  CREATE TABLE "messages" ("id" serial primary key, "room_id" integer, "username" character varying(255), "message" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE "rooms"[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "rooms" ("id" serial primary key, "name" character varying(255), "created_by" integer, "members" text, "messages" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (114.0ms)[0m  [1mDROP DATABASE IF EXISTS "chatroom_development"[0m
+  [1m[35m (307.1ms)[0m  CREATE DATABASE "chatroom_development" ENCODING = 'utf8'
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "room_id" integer, "username" character varying(255), "message" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "rooms" ("id" serial primary key, "name" character varying(255), "created_by" integer, "members" text, "messages" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140414062541')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140407201101')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140411195247')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

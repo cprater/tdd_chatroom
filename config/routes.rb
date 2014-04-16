@@ -5,5 +5,6 @@ Chatroom::Application.routes.draw do
   resources :room
   
   post '/add_message', to: 'room#add_message'
+  get '/user_login', to: 'user#login'
   
 end

@@ -6,7 +6,8 @@ include SignupHelper
 	end
 
 	def show
-		@user = User.find(session[:current_user])
+		@user = User.find(params[:id])
+		@rooms = Room.all
 	end
 
 	def create
@@ -18,6 +19,11 @@ include SignupHelper
 			flash[:error] = determine_signup_error(user_params)
 			render 'index'
 		end
+	end
+
+	def login
+		session[:current_user] = params[:user_id]
+		render nothing: :true
 	end
 
 	private
