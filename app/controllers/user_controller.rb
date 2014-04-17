@@ -22,8 +22,19 @@ include SignupHelper
 	end
 
 	def login
-		session[:current_user] = params[:user_id]
-		render nothing: :true
+		if @user = User.find_by_username(params[:user][:username])
+			if @user.authenticate(params[:user][:password])
+				session[:current_user] = @user.id
+				redirect_to user_path(@user.id)				
+			else
+				flash[:error] = "Invalid Information"
+				render 'index'
+			end
+		else
+			@user = User.new
+			flash[:error] = "Invalid Information"
+			render 'index'
+		end
 	end
 
 	private

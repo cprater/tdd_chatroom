@@ -7,7 +7,5 @@ module SignupHelper
 		elsif params[:password] != params[:password_confirmation]
 			return "Passwords don't match"
 		end
-
 	end
-
 end

@@ -34,6 +34,7 @@ group :doc do
 end
 
 group :development, :test do 
+	gem 'rack_session_access'
 	gem 'sqlite3'
 	gem 'rspec-rails'
 	gem 'capybara'

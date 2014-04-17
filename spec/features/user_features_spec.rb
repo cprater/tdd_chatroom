@@ -3,9 +3,9 @@ require 'spec_helper'
 describe UserController do 
 
 	context 'When signing up' do 
-		it 'should display login form on landing page' do 
+		it 'should display signup form on landing page' do 
 			visit root_path
-			expect(page).to have_content('Welcome')
+			expect(page).to have_selector('#new_user')
 		end
 
 		it 'should redirect to user page when signing up' do 
@@ -18,6 +18,45 @@ describe UserController do
 			end
 			expect(page).to have_content('Welcome test')
 		end
+
+	context 'When logging in' do 
+		let(:user) do 
+			User.create(username: "test", password: "123", password_confirmation: "123")
+		end
+
+		it 'should display login form' do 
+			visit root_path
+			expect(page).to have_selector('#login')
+		end
+
+		it 'should log in user and direct to profile page' do 
+			visit root_path
+			within('#login') do 
+				fill_in 'user[username]', :with => user.username
+				fill_in 'user[password]', :with => user.password
+				click_button 'Login'				
+			end
+			expect(page).to have_content 'Welcome test'
+		end
+
+		it 'should throw an error with invalid login info' do 
+			visit root_path
+			within('#login') do 
+				fill_in 'user[username]', :with => "boobs"
+				fill_in 'user[password]', :with => "sboob"
+				click_button 'Login'				
+			end
+			expect(page).to have_content 'Invalid Information'
+		end
+
+		it 'should throw error when no info is entered' do 
+			visit root_path
+			within('#login') do 
+				click_button 'Login'
+			end
+			expect(page).to have_content 'Invalid Information'
+		end
+	end
 
 	context 'render correct error message when ' do 
 
@@ -58,8 +97,12 @@ describe UserController do
 		before(:each) do 
 			@user = User.create(username: "test", password: "123", password_confirmation: "123")
 			@room = Room.create(name: "roomie", created_by: 1)
-			visit user_login_path(user_id: 1)
-			visit user_path(1)
+			visit root_path
+			within('#login') do 
+				fill_in 'user[username]', :with => @user.username
+				fill_in 'user[password]', :with => @user.password
+				click_button 'Login'
+			end
 		end
 
 		it 'should display a links to available rooms' do 

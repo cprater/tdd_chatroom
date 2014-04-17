@@ -33,4 +33,10 @@ Chatroom::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Added for testing session access 
+  Chatroom::Application.configure do |config|
+  # Access to rack session
+  config.middleware.use RackSessionAccess::Middleware
+  end
 end
