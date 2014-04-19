@@ -3,7 +3,7 @@ include RoomHelper
 
 	def create
 		@room = Room.create(name: params[:chatroom][:name], created_by: session[:current_user])
-		@room.join(User.find(session[:current_user]))
+		add_to_members(@room)
 		redirect_to room_path(@room.id)
 	end
 

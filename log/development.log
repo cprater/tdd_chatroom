@@ -10577,3 +10577,431 @@ Processing by RoomController#show as HTML
   [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
   Rendered room/show.html.erb within layouts/application (2.8ms)
 Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-19 17:32:09 -0500
+Processing by UserController#index as HTML
+  Rendered user/index.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 48ms (Views: 42.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:32:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:09 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:09 -0500
+
+
+Started POST "/user" for 127.0.0.1 at 2014-04-19 17:32:14 -0500
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g/qsF9XZ/aIbo10js2jTlBbL/2F8WMbfcP9OSWrlho8=", "user"=>{"username"=>"jimmh", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'jimmh' LIMIT 1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Sat, 19 Apr 2014 22:32:14 UTC +00:00], ["password_digest", "$2a$10$XvZLxGTkI54LpH17rN4mGOzUubbL.LpahJW2eRhSaHiG2rO0JQ3EC"], ["updated_at", Sat, 19 Apr 2014 22:32:14 UTC +00:00], ["username", "jimmh"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/user/5
+Completed 302 Found in 75ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/user/5" for 127.0.0.1 at 2014-04-19 17:32:14 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "5"]]
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  Rendered user/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:14 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:32:14 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:14 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:14 -0500
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:32:18 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.3ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/add_message" for 127.0.0.1 at 2014-04-19 17:32:24 -0500
+Processing by RoomController#add_message as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g/qsF9XZ/aIbo10js2jTlBbL/2F8WMbfcP9OSWrlho8=", "sending"=>{"message"=>"no one else", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mRoom Load (0.5ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("created_at", "message", "room_id", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Sat, 19 Apr 2014 22:32:24 UTC +00:00], ["message", "no one else"], ["room_id", 1], ["updated_at", Sat, 19 Apr 2014 22:32:24 UTC +00:00], ["username", "jimmh"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mRoom Exists (0.2ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1[0m  [["updated_at", Sat, 19 Apr 2014 22:32:24 UTC +00:00], ["members", "--- []\n"], ["messages", "--- {}\n"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/room/1
+Completed 302 Found in 11ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:32:24 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:24 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:32:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:24 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:24 -0500
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:32:27 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:32:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:27 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:27 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:27 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:27 -0500
+
+
+Started POST "/add_message" for 127.0.0.1 at 2014-04-19 17:32:33 -0500
+Processing by RoomController#add_message as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YEmePyAN+5LoCSyZEg3SMubi7FIaQEbPVOZ3xsATy+A=", "sending"=>{"message"=>"where are you\r\n", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("created_at", "message", "room_id", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Sat, 19 Apr 2014 22:32:33 UTC +00:00], ["message", "where are you\r\n"], ["room_id", 1], ["updated_at", Sat, 19 Apr 2014 22:32:33 UTC +00:00], ["username", "george"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mRoom Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1  [["updated_at", Sat, 19 Apr 2014 22:32:33 UTC +00:00], ["members", "--- []\n"], ["messages", "--- {}\n"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/room/1
+Completed 302 Found in 19ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:32:33 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:32:33 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:33 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:33 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:33 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:32:33 -0500
+  [1m[36mRoom Load (1.8ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35mRoom Load (0.7ms)[0m  SELECT "rooms".* FROM "rooms" ORDER BY "rooms"."id" ASC LIMIT 1
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:40:31 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mRoom Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1  [["updated_at", Sat, 19 Apr 2014 22:40:31 UTC +00:00], ["members", "---\n- jimmh\n"], ["messages", "--- {}\n"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 64ms (Views: 10.7ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:40:31 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:31 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:31 -0500
+
+
+Started POST "/leave_room.1" for 127.0.0.1 at 2014-04-19 17:40:35 -0500
+Processing by RoomController#leave as 
+  Parameters: {"authenticity_token"=>"g/qsF9XZ/aIbo10js2jTlBbL/2F8WMbfcP9OSWrlho8="}
+  [1m[35mRoom Load (0.3ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mRoom Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1  [["updated_at", Sat, 19 Apr 2014 22:40:35 UTC +00:00], ["members", "--- []\n"], ["messages", "--- {}\n"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/user/5
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/user/5" for 127.0.0.1 at 2014-04-19 17:40:35 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms"
+  Rendered user/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:40:35 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:35 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:35 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:35 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:35 -0500
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:40:36 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mRoom Exists (0.2ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1[0m  [["updated_at", Sat, 19 Apr 2014 22:40:36 UTC +00:00], ["members", "---\n- jimmh\n"], ["messages", "--- {}\n"]]
+  [1m[35m (6.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 19ms (Views: 7.1ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:40:48 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mRoom Exists (0.2ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1[0m  [["updated_at", Sat, 19 Apr 2014 22:40:48 UTC +00:00], ["members", "---\n- jimmh\n- george\n"], ["messages", "--- {}\n"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 5.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:40:48 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:48 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:48 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:48 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:48 -0500
+
+
+Started POST "/leave_room.1" for 127.0.0.1 at 2014-04-19 17:40:51 -0500
+Processing by RoomController#leave as 
+  Parameters: {"authenticity_token"=>"YEmePyAN+5LoCSyZEg3SMubi7FIaQEbPVOZ3xsATy+A="}
+  [1m[36mRoom Load (0.3ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mRoom Exists (0.3ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1[0m  [["updated_at", Sat, 19 Apr 2014 22:40:51 UTC +00:00], ["members", "---\n- jimmh\n"], ["messages", "--- {}\n"]]
+  [1m[35m (5.6ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Redirected to http://localhost:3000/user/4
+Completed 302 Found in 12ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/user/4" for 127.0.0.1 at 2014-04-19 17:40:51 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "4"]]
+  [1m[36mRoom Load (0.3ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  Rendered user/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:51 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:40:51 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:40:51 -0500
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:40:53 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.3ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mRoom Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1  [["updated_at", Sat, 19 Apr 2014 22:40:53 UTC +00:00], ["members", "---\n- jimmh\n- george\n"], ["messages", "--- {}\n"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 13ms (Views: 5.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:41:01 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.3ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mRoom Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1  [["updated_at", Sat, 19 Apr 2014 22:41:01 UTC +00:00], ["members", "---\n- jimmh\n- george\n"], ["messages", "--- {}\n"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:41:01 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:01 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:01 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:01 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:01 -0500
+
+
+Started POST "/leave_room.1" for 127.0.0.1 at 2014-04-19 17:41:06 -0500
+Processing by RoomController#leave as 
+  Parameters: {"authenticity_token"=>"g/qsF9XZ/aIbo10js2jTlBbL/2F8WMbfcP9OSWrlho8="}
+  [1m[35mRoom Load (0.3ms)[0m  SELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mRoom Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1  [["updated_at", Sat, 19 Apr 2014 22:41:06 UTC +00:00], ["members", "---\n- george\n"], ["messages", "--- {}\n"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/user/5
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/user/5" for 127.0.0.1 at 2014-04-19 17:41:06 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms"
+  Rendered user/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-19 17:41:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-19 17:41:06 -0500
+
+
+Started GET "/room/1" for 127.0.0.1 at 2014-04-19 17:41:08 -0500
+Processing by RoomController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.4ms)[0m  [1mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mRoom Exists (0.2ms)[0m  SELECT 1 AS one FROM "rooms" WHERE ("rooms"."name" = 'breasts' AND "rooms"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "rooms" SET "updated_at" = $1, "members" = $2, "messages" = $3 WHERE "rooms"."id" = 1[0m  [["updated_at", Sat, 19 Apr 2014 22:41:08 UTC +00:00], ["members", "---\n- george\n- jimmh\n"], ["messages", "--- {}\n"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1  [["room_id", 1]]
+  Rendered room/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 20ms (Views: 8.3ms | ActiveRecord: 7.6ms)
