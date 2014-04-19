@@ -15,9 +15,7 @@
 				<% @room.messages.each do |message| %>
 					<li class="message"><%= message.username %>: <%=message.message%></li>
 				<% end %>						
-			<% end %>
-			  
-		<li class="chat_message"></li>
+			<% end %>	
 	</ul>
 </div>
 
@@ -26,3 +24,5 @@
 	<%= f.hidden_field :room_id, value: "#{@room.id}" %>
 	<%= f.submit "Send" %>
 <% end %>
+
+<%= link_to 'Leave Room', leave_room_path(@room), method: "POST" %>

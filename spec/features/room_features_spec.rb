@@ -67,6 +67,17 @@ describe RoomController do
 			visit room_path(1)
 			expect(page).to have_button ('Send')
 		end
+
+		it 'should have a leave room button' do 
+			visit room_path(1)
+			expect(page).to have_link ('Leave Room')
+		end
+
+		it 'leave room when you click the button' do 
+			visit room_path(1)
+			click_link 'Leave Room'
+			expect(@room.members.include?('test')).to be_false
+		end
 	end
 
 	context 'chatting' do 
